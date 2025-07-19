@@ -5,12 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "add:service": "node tools/add-service.js"
+    "add:service": "node tools/add-service.js",
+    "release": "node tools/run-release.js"
   },
   "workspaces": [
     "packages/*"
   ],
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "semantic-release": "24.2.7",
+    "semantic-release-monorepo": "8.0.2"
+  }
 }
