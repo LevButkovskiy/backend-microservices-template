@@ -1,6 +1,7 @@
 const { execSync } = require('child_process');
-const { readFileSync, writeFileSync } = require('fs');
+const { readFileSync, writeFileSync, existsSync } = require('fs');
 const path = require('path');
+const yaml = require('yaml');
 
 const name = process.argv[2];
 if (!name) {
@@ -35,6 +36,20 @@ const releaseConfig = {
 };
 writeFileSync(path.join(serviceDir, '.releaserc.json'), JSON.stringify(releaseConfig, null, 2) + '\n');
 writeFileSync(path.join(serviceDir, 'CHANGELOG.md'), '');
+
+const dockerfile = `# syntax=docker/dockerfile:1\nARG SERVICE=${name}\nFROM node:20 AS builder\nWORKDIR /app\nCOPY package*.json ./\nCOPY packages ./packages\nRUN npm ci\nRUN npm run build -w packages/shared && npm run build -w packages/$SERVICE\n\nFROM node:20-alpine\nWORKDIR /app\nCOPY --from=builder /app/package*.json ./\nCOPY --from=builder /app/packages ./packages\nRUN npm ci --omit=dev\nCMD [\"node\", \"packages/$SERVICE/dist/main.js\"]\n`;
+writeFileSync(path.join(serviceDir, 'Dockerfile'), dockerfile);
+
+const composePath = path.join(__dirname, '..', 'docker-compose.yml');
+if (existsSync(composePath)) {
+  const compose = yaml.parse(readFileSync(composePath, 'utf8'));
+  compose.services = compose.services || {};
+  compose.services[name] = {
+    image: `your-registry/${name}:latest`,
+    env_file: '.env',
+  };
+  writeFileSync(composePath, yaml.stringify(compose));
+}
 
 console.log(`Service ${name} created at ${serviceDir}`);
 

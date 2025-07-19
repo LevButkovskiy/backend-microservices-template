@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  gateway:
+    image: your-registry/gateway:latest
+    env_file: .env
+    ports:
+      - "${GATEWAY_PORT:-3000}:${GATEWAY_PORT:-3000}"
+    depends_on:
+      - users
+  users:
+    image: your-registry/users:latest
+    env_file: .env
+
