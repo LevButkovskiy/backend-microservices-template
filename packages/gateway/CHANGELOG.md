@@ -1,3 +1,10 @@
+# [gateway-v1.0.1](https://github.com/LevButkovskiy/backend-microservices-template/compare/gateway-v1.0.0...gateway-v1.0.1) (2025-07-19)
+
+
+### Bug Fixes
+
+* **ci:** use secure registry login ([d26b281](https://github.com/LevButkovskiy/backend-microservices-template/commit/d26b2810e6fc8d756f2269bdfc42589c959637ab))
+
 # gateway-v1.0.0 (2025-07-19)
 
 
