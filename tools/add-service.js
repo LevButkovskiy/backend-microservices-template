@@ -22,5 +22,19 @@ if (!pkg.dependencies['@backend/shared']) {
 
 writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n');
 
+// add semantic-release config and empty changelog
+const releaseConfig = {
+  extends: 'semantic-release-monorepo',
+  plugins: [
+    '@semantic-release/commit-analyzer',
+    '@semantic-release/release-notes-generator',
+    '@semantic-release/changelog',
+    '@semantic-release/npm',
+    ['@semantic-release/git', { assets: ['package.json', 'CHANGELOG.md'] }]
+  ]
+};
+writeFileSync(path.join(serviceDir, '.releaserc.json'), JSON.stringify(releaseConfig, null, 2) + '\n');
+writeFileSync(path.join(serviceDir, 'CHANGELOG.md'), '');
+
 console.log(`Service ${name} created at ${serviceDir}`);
 
