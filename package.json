@@ -1,0 +1,16 @@
+{
+  "name": "backend-microservices-template",
+  "version": "1.0.0",
+  "description": "Backend Microservices Template Nest.Js Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "add:service": "node tools/add-service.js"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
