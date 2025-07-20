@@ -1,4 +1,5 @@
 # backend-microservices-template
+
 ## Backend Microservices Template Nest.Js Typescript
 
 ## Архитектура
@@ -21,6 +22,20 @@ npm run add:service -- <имя-сервиса>
 добавит зависимость `@backend/shared` и автоматически подключит сервис
 к рабочей области.
 
+## Запуск сервисов
+
+Для установки зависимостей во всех сервисах выполните:
+
+```bash
+npm run install:services
+```
+
+Для запуска всех сервисов в режиме разработки выполните:
+
+```bash
+npm run start:services
+```
+
 ## Docker
 
 Для каждого сервиса есть `Dockerfile`. Файл `docker-compose.yml` подтягивает
@@ -36,4 +51,3 @@ docker compose up
 собирает Docker-образы, отправляет их во внешний реестр и разворачивает
 их на сервере по SSH. Перед запуском `docker compose` на сервере выполняется
 вход в реестр.
-

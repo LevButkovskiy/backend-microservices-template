@@ -1,4 +1,5 @@
 # backend-microservices-template
+
 Backend Microservices Template Nest.Js Typescript
 
 ## Architecture
@@ -21,6 +22,20 @@ The command generates a NestJS project under `packages/<service-name>`,
 adds the `@backend/shared` package as a dependency and includes the
 service in the workspace automatically.
 
+## Development
+
+Install dependencies for all services:
+
+```bash
+npm run install:services
+```
+
+Use the following command to start all services in watch mode:
+
+```bash
+npm run start:services
+```
+
 ## Docker
 
 Each service contains a `Dockerfile`. The `docker-compose.yml` file pulls
@@ -36,4 +51,3 @@ The `Release` workflow publishes new package versions. After a successful releas
 or when triggered manually, the `Deploy` workflow builds Docker images, pushes
 them to the external registry and deploys them on the server via SSH. The server
 logs in to the registry before running `docker compose`.
-

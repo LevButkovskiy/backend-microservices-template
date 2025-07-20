@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "add:service": "node tools/add-service.js",
-    "release": "node tools/run-release.js"
+    "release": "node tools/run-release.js",
+    "start:services": "concurrently -k \"npm run start:dev -w packages/gateway\" \"npm run start:dev -w packages/users\"",
+    "install:services": "npm install --workspaces"
   },
   "workspaces": [
     "packages/*"
@@ -17,6 +19,7 @@
   "devDependencies": {
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
+    "concurrently": "^9.2.0",
     "semantic-release": "24.2.7",
     "semantic-release-monorepo": "8.0.2",
     "yaml": "^2.8.0"
