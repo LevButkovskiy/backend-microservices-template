@@ -1,3 +1,10 @@
+# [users-v1.0.2](https://github.com/LevButkovskiy/backend-microservices-template/compare/users-v1.0.1...users-v1.0.2) (2025-07-20)
+
+
+### Bug Fixes
+
+* **deps:** add @nestjs/microservices ([691dd55](https://github.com/LevButkovskiy/backend-microservices-template/commit/691dd5524b352e92afc70a303fac0456c76be088))
+
 # [users-v1.0.1](https://github.com/LevButkovskiy/backend-microservices-template/compare/users-v1.0.0...users-v1.0.1) (2025-07-19)
 
 
