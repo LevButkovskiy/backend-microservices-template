@@ -1,3 +1,10 @@
+# [gateway-v1.0.3](https://github.com/LevButkovskiy/backend-microservices-template/compare/gateway-v1.0.2...gateway-v1.0.3) (2025-07-20)
+
+
+### Bug Fixes
+
+* **config:** add path alias for shared package ([85d68b8](https://github.com/LevButkovskiy/backend-microservices-template/commit/85d68b83f5e6549a4128d4c16dabe07e94135444))
+
 # [gateway-v1.0.2](https://github.com/LevButkovskiy/backend-microservices-template/compare/gateway-v1.0.1...gateway-v1.0.2) (2025-07-20)
 
 
