@@ -20,6 +20,12 @@ pkg.dependencies = pkg.dependencies || {};
 if (!pkg.dependencies['@backend/shared']) {
   pkg.dependencies['@backend/shared'] = '*';
 }
+if (!pkg.dependencies['@nestjs/config']) {
+  pkg.dependencies['@nestjs/config'] = '^4.0.2';
+}
+if (!pkg.dependencies['@nestjs/microservices']) {
+  pkg.dependencies['@nestjs/microservices'] = '^11.0.1';
+}
 
 writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n');
 
