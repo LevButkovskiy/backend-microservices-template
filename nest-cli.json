@@ -1,0 +1,9 @@
+{
+  "language": "ts",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "monorepo": true,
+  "compilerOptions": {
+    "tsConfigPath": "tsconfig.base.json"
+  }
+}
