@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+  gateway:
+    build:
+      context: .
+      dockerfile: apps/gateway/Dockerfile
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+      - PORT=3000
+    depends_on:
+      - rabbitmq
+    ports:
+      - '3000:3000'
+  users:
+    build:
+      context: .
+      dockerfile: apps/users/Dockerfile
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+    depends_on:
+      - rabbitmq
+  telegram:
+    build:
+      context: .
+      dockerfile: apps/telegram/Dockerfile
+    environment:
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+    depends_on:
+      - rabbitmq

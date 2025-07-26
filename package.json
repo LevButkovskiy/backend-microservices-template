@@ -1,0 +1,11 @@
+{
+  "name": "backend-microservices-template",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "devDependencies": {
+    "@nestjs/cli": "latest"
+  }
+}
