@@ -19,3 +19,10 @@ Run `npm install` in the repository root to install all workspace dependencies.
 ```bash
 docker-compose up --build
 ```
+
+## Continuous Integration
+
+The project uses [semantic-release](https://semantic-release.gitbook.io) via
+GitHub Actions. Every push to `main` runs commit linting and, when commit
+messages follow the Conventional Commits specification, publishes a new
+release.
