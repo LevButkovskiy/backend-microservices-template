@@ -6,6 +6,22 @@
     "libs/*"
   ],
   "devDependencies": {
-    "@nestjs/cli": "latest"
+    "@nestjs/cli": "latest",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "semantic-release": "^23.0.8",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^10.0.1",
+    "@semantic-release/npm": "^11.0.1",
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "scripts": {
+    "lint:commits": "commitlint --from=HEAD~1"
   }
 }

@@ -19,3 +19,7 @@
 ```bash
 docker-compose up --build
 ```
+
+## CI/CD
+
+Релизы автоматизированы с помощью [semantic-release](https://semantic-release.gitbook.io) в GitHub Actions. При каждом пуше в `main` проверяются сообщения коммитов и, при соблюдении формата Conventional Commits, создаётся новая версия проекта.

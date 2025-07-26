@@ -11,4 +11,8 @@ export class AppService {
   getUserById(id: number) {
     return this.users[id] ?? null;
   }
+
+  getHello() {
+    return 'Hello World!';
+  }
 }
